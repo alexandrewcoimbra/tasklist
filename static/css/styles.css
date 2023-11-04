@@ -1,0 +1,124 @@
+/* styles.css */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .modal {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .modal-title {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .form-control {
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .add-task-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .taskboard-column {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    height: 300px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+  }
+  
+  #date {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .container {
+    margin-top: 20px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .taskboard-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 80px;
+  }
+  
+  .btn-sm {
+    padding: 5px 10px;
+  }
+  
+  .column-gap-2 > * {
+    margin-right: 10px;
+  }
+  
+  /* Alinhar as caixas de texto da tarefa e da data */
+  #descriptionInput, #date {
+    margin-bottom: 10px;
+  }
+  
+  /* Centralizar o ícone "+" no botão de adicionar tarefa */
+  .add-task-button i {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .date-padding {
+    padding-top: 20px;
+  }
+  
+  .form-outline {
+    width: 400px;
+    padding-left: 125px;
+
+  }
+
+  #hide-finished {
+    text-align: right;
+    padding-right: 190px;
+  }
+
+  .hide-class {
+    display: none;
+}
