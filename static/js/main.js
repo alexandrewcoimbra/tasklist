@@ -52,7 +52,7 @@ $(document).ready(() => {
 
     const addTaskToBoard = (description, date) => {
         const $newTask = $("<div></div>").addClass("taskboard-item")
-        const $taskText = $("<span></span>").text(description)
+        const $taskText = $("<span></span>").text(description);
         const $dateText = $("<div></div>").text(date).addClass("taskboard-item").addClass("date-padding").addClass("filter-aux")
         const $today = $("<div></div>").text(`${(new Date()).toLocaleDateString('pt-BR')}`).addClass("taskboard-item").addClass("filter-aux")
 
