@@ -46,8 +46,8 @@ $(document).ready(() => {
 
 
     $date.datepicker({
-        format: 'dd/mm/yyyy',  // Formato da date exibida
-        language: 'pt-BR'     // Idioma do Datepicker (opcional)
+        format: 'dd/mm/yyyy', 
+        language: 'pt-BR'    
     });
 
     const addTaskToBoard = (description, date) => {
@@ -79,16 +79,16 @@ $(document).ready(() => {
                     language: 'pt-BR'
                 });
             
-                $dateInput.val($dateText.text()); // Preencha o campo de entrada com a data atual
-                $dateText.replaceWith($dateInput); // Substitua o texto pela entrada
+                $dateInput.val($dateText.text());
+                $dateText.replaceWith($dateInput);
             
                 $dateInput.datepicker().on("hide", () => {
                     const editedDate = $dateInput.val();
-                    $dateText.text(editedDate); // Atualize o texto exibido com a nova data
-                    $dateInput.datepicker("remove"); // Remova o Datepicker
-                    $dateInput.replaceWith($dateText); // Substitua o campo de entrada pelo texto
+                    $dateText.text(editedDate);
+                    $dateInput.datepicker("remove");
+                    $dateInput.replaceWith($dateText);
                 });
-            ; // Chame a função de edição de data quando o botão for clicado
+            ;
         });
 
         const $concludedButton = createIconButton("bi bi-check", "btn btn-success btn-sm", () => {
