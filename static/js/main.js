@@ -6,6 +6,57 @@ $(document).ready(() => {
     const $hide = $("#hide")
     const $searchInput = $("#form1")
 
+
+    const saveTasksToLocalStorage = () => {
+        const tasks = [];
+        const dates = [];
+        // Obtendo todas as tarefas na tela (<li>)
+        const $tasks = $(".list-group-item");
+        const $datesStorage = $(".date-padding")
+
+        // Percorrendo cada tarefa para gerar um objeto da tarefa ({ description, expirationDate, isCompleted })
+        $.each($tasks, (_, task) => {
+            const $task = $(task);
+            // Obtendo os elementos da tarefa (descrição, data de expiração, status)
+            const description = $task.find("span").text(); // Obtém o texto do parágrafo de descrição
+            // Adiciona a tarefa no vetor de tarefas
+            tasks.push({
+                description
+            });
+        });
+
+        $.each($datesStorage, (_, date) => {
+            const $date = $(date);
+            // Obtendo os elementos da tarefa (descrição, data de expiração, status)
+            const expirationDate = $date.find(".date-padding").text(); // Obtém o texto do parágrafo de descrição
+            // Adiciona a tarefa no vetor de tarefas
+            dates.push({
+                expirationDate
+            });
+        });
+
+        // Adicionando as tarefas no localStorage
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        localStorage.setItem("dates", JSON.stringify(dates));
+    };
+
+    /** Carrega as tarefas do localStorage e as adiciona à lista de tarefas */
+    const loadTasksFromLocalStorage = () => {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        const dates = JSON.parse(localStorage.getItem("dates")) || [];
+
+        // Adicionando cada tarefa salva à lista de tarefas
+        tasks.forEach(task => {
+            const $task = $(task)
+            $(`#dateExpiration`).append($date); // Adicionando a tarefa na lista
+        });
+
+        dates.forEach(date => {
+            const $date = $(date)
+            $(`#dateExpiration`).append($date); // Adicionando a tarefa na lista
+        });
+    };
+
     $hide.click(() => {
         if (!$hide.hasClass("is-hidden")) {
             $hide.addClass("is-hidden")
@@ -51,7 +102,7 @@ $(document).ready(() => {
     });
 
     const addTaskToBoard = (description, date) => {
-        const $newTask = $("<div></div>").addClass("taskboard-item")
+        const $newTask = $("<div></div>").addClass("taskboard-item").addClass("list-group-item")
         const $taskText = $("<span></span>").text(description);
         const $dateText = $("<div></div>").text(date).addClass("taskboard-item").addClass("date-padding").addClass("filter-aux")
         const $today = $("<div></div>").text(`${(new Date()).toLocaleDateString('pt-BR')}`).addClass("taskboard-item").addClass("filter-aux")
@@ -140,5 +191,10 @@ $(document).ready(() => {
         });
     });
     
+    $(window).on("beforeunload", () => {
+        saveTasksToLocalStorage();
+    });
+
+    loadTasksFromLocalStorage();
 
 });
