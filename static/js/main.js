@@ -48,7 +48,7 @@ $(document).ready(() => {
         // Adicionando cada tarefa salva à lista de tarefas
         tasks.forEach(task => {
             const $task = $(task)
-            $(`#dateExpiration`).append($date); // Adicionando a tarefa na lista
+            $(`#todo`).append($task); // Adicionando a tarefa na lista
         });
 
         dates.forEach(date => {
